@@ -5,6 +5,9 @@ import './globals.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://prodquick.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: 'Galaxy S26 Series 사전예약 | 쿠팡 단독 혜택',
   description: '더블 스토리지부터 혜택의 끝판왕. 비교할 수 없는 Galaxy S26 사전예약을 쿠팡에서 단독으로 빠르게 만나보세요.',
   keywords: 'Galaxy S26, 갤럭시 S26, S26 사전예약, 삼성 S26 울트라, 쿠팡 갤럭시, prodquick',
@@ -19,6 +22,23 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Galaxy S26 Series 사전예약 | 쿠팡 단독 혜택',
+    description: '더블 스토리지부터 혜택의 끝판왕. 비교할 수 없는 Galaxy S26 사전예약을 쿠팡에서 단독으로 빠르게 만나보세요.',
+    images: ['https://prodquick.com/images/삼성전자-모바일-3세대-AI폰-갤럭시-S26-시리즈-울트라-언팩-블랙-6_DL.jpg'],
+  },
+  authors: [{ name: 'ProdQuick - Samsung x Coupang' }],
+  publisher: 'ProdQuick - Samsung x Coupang',
+  formatDetection: {
+    telephone: false,
+    date: false,
+    address: false,
+    email: false,
+  },
+  verification: {
+    google: '여기에_구글_인증코드_입력',
   },
 }
 
