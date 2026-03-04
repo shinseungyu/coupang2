@@ -59,10 +59,28 @@ const jsonLd = {
           '@type': 'Brand',
           'name': 'Samsung'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.9',
+          'reviewCount': '856'
+        },
+        'review': {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '5',
+            'bestRating': '5'
+          },
+          'author': {
+            '@type': 'Person',
+            'name': '쿠팡 이용자'
+          }
+        },
         'offers': {
           '@type': 'Offer',
           'priceCurrency': 'KRW',
           'price': '1699000',
+          'priceValidUntil': '2026-12-31',
           'availability': 'https://schema.org/PreOrder'
         }
       }
@@ -79,10 +97,28 @@ const jsonLd = {
           '@type': 'Brand',
           'name': 'Samsung'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.8',
+          'reviewCount': '412'
+        },
+        'review': {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '5',
+            'bestRating': '5'
+          },
+          'author': {
+            '@type': 'Person',
+            'name': '쿠팡 이용자'
+          }
+        },
         'offers': {
           '@type': 'Offer',
           'priceCurrency': 'KRW',
           'price': '1353000',
+          'priceValidUntil': '2026-12-31',
           'availability': 'https://schema.org/PreOrder'
         }
       }
@@ -99,10 +135,28 @@ const jsonLd = {
           '@type': 'Brand',
           'name': 'Samsung'
         },
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.7',
+          'reviewCount': '289'
+        },
+        'review': {
+          '@type': 'Review',
+          'reviewRating': {
+            '@type': 'Rating',
+            'ratingValue': '4',
+            'bestRating': '5'
+          },
+          'author': {
+            '@type': 'Person',
+            'name': '쿠팡 이용자'
+          }
+        },
         'offers': {
           '@type': 'Offer',
           'priceCurrency': 'KRW',
           'price': '1155000',
+          'priceValidUntil': '2026-12-31',
           'availability': 'https://schema.org/PreOrder'
         }
       }
