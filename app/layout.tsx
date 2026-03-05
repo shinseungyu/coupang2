@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  title: 'Galaxy S26 Series 사전예약 | 쿠팡 단독 혜택',
-  description: '더블 스토리지부터 혜택의 끝판왕. 비교할 수 없는 Galaxy S26 사전예약을 쿠팡에서 단독으로 빠르게 만나보세요.',
-  keywords: 'Galaxy S26, 갤럭시 S26, S26 사전예약, 삼성 S26 울트라, 쿠팡 갤럭시, prodquick',
+  title: 'Galaxy S26 Series | 쿠팡 단독 혜택',
+  description: '더 깊어진 Galaxy AI와 압도적인 성능. 당신의 일상을 혁신할 Galaxy S26 시리즈를 쿠팡에서 단독 혜택과 함께 만나보세요.',
+  keywords: 'Galaxy S26, 갤럭시 S26, 삼성 S26 울트라, 쿠팡 갤럭시, prodquick',
   openGraph: {
-    title: 'Galaxy S26 Series 사전예약 | 쿠팡 단독 혜택',
-    description: '더블 스토리지부터 혜택의 끝판왕. 비교할 수 없는 Galaxy S26 사전예약을 쿠팡에서 단독으로 빠르게 만나보세요.',
+    title: 'Galaxy S26 Series | 쿠팡 단독 혜택',
+    description: '더 깊어진 Galaxy AI와 압도적인 성능. 당신의 일상을 혁신할 Galaxy S26 시리즈를 쿠팡에서 단독 혜택과 함께 만나보세요.',
     url: '/',
     siteName: 'ProdQuick - Samsung x Coupang',
     locale: 'ko_KR',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Galaxy S26 Series 사전예약 | 쿠팡 단독 혜택',
-    description: '더블 스토리지부터 혜택의 끝판왕. 비교할 수 없는 Galaxy S26 사전예약을 쿠팡에서 단독으로 빠르게 만나보세요.',
+    title: 'Galaxy S26 Series | 쿠팡 단독 혜택',
+    description: '더 깊어진 Galaxy AI와 압도적인 성능. 당신의 일상을 혁신할 Galaxy S26 시리즈를 쿠팡에서 단독 혜택과 함께 만나보세요.',
     images: ['https://prodquick.com/images/삼성전자-모바일-3세대-AI폰-갤럭시-S26-시리즈-울트라-언팩-블랙-6_DL.jpg'],
   },
   authors: [{ name: 'ProdQuick - Samsung x Coupang' }],
@@ -81,7 +81,7 @@ const jsonLd = {
           'priceCurrency': 'KRW',
           'price': '1699000',
           'priceValidUntil': '2026-12-31',
-          'availability': 'https://schema.org/PreOrder'
+          'availability': 'https://schema.org/InStock'
         }
       }
     },
@@ -119,7 +119,7 @@ const jsonLd = {
           'priceCurrency': 'KRW',
           'price': '1353000',
           'priceValidUntil': '2026-12-31',
-          'availability': 'https://schema.org/PreOrder'
+          'availability': 'https://schema.org/InStock'
         }
       }
     },
@@ -157,7 +157,7 @@ const jsonLd = {
           'priceCurrency': 'KRW',
           'price': '1155000',
           'priceValidUntil': '2026-12-31',
-          'availability': 'https://schema.org/PreOrder'
+          'availability': 'https://schema.org/InStock'
         }
       }
     }

@@ -4,46 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { Clock, Truck, CreditCard, ShieldCheck, ChevronRight, Smartphone, Zap, Camera, Battery, PenTool } from 'lucide-react';
 
 export default function Page() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    setTimeLeft(calculateTimeLeft());
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-    return () => clearInterval(timer);
   }, []);
 
-  function calculateTimeLeft() {
-    const difference = +new Date("2026-03-05T23:59:59") - +new Date();
-    let timeLeft = {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
-    };
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
-    }
-    return timeLeft;
-  }
-
-  const formatNumber = (num: number) => num.toString().padStart(2, '0');
-
-  // Prevent hydration error due to Date differences
+  // Prevent hydration error
   if (!isClient) {
     return null;
   }
@@ -55,7 +22,7 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="text-xl font-bold tracking-tighter">SAMSUNG <span className="text-blue-500 font-normal">| Coupang</span></div>
           <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-            <a href="#hero" className="hover:text-white transition-colors">사전예약</a>
+            <a href="#hero" className="hover:text-white transition-colors">상품소개</a>
             <a href="#benefits" className="hover:text-white transition-colors">단독혜택</a>
             <a href="#lineup" className="hover:text-white transition-colors">라인업</a>
             <a href="#specs" className="hover:text-white transition-colors">스펙비교</a>
@@ -72,11 +39,7 @@ export default function Page() {
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-8">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              사전예약 진행중 (2.27 ~ 3.5)
+              혜택 안내 (쿠팡 단독)
             </div>
             
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]">
@@ -87,43 +50,10 @@ export default function Page() {
             </h1>
             
             <p className="text-xl md:text-2xl text-zinc-400 mb-12 max-w-2xl mx-auto font-light">
-              지금 안 사면 손해. 256GB 가격으로 512GB를 받는 <br className="hidden md:block"/>
-              <strong className="text-white font-semibold">더블 스토리지 혜택</strong>이 곧 종료됩니다.
+              강력한 성능, AI가 선사하는 무한한 가능성.<br className="hidden md:block"/>
+              <strong className="text-white font-semibold">Galaxy S26 Series</strong>와 함께 모바일의 정의를 새롭게 쓰세요.
             </p>
 
-            {/* Countdown Timer */}
-            <div className="flex flex-col items-center justify-center mb-12">
-              <p className="text-sm text-zinc-500 uppercase tracking-widest mb-4 font-semibold">혜택 종료까지 남은 시간</p>
-              <div className="flex gap-4 md:gap-6 text-center">
-                <div className="flex flex-col">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-3xl md:text-5xl font-mono font-bold text-white shadow-xl">
-                    {formatNumber(timeLeft.days)}
-                  </div>
-                  <span className="text-xs text-zinc-500 mt-2 uppercase tracking-wider">Days</span>
-                </div>
-                <div className="text-3xl md:text-5xl font-mono font-bold text-zinc-700 mt-4 md:mt-6">:</div>
-                <div className="flex flex-col">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-3xl md:text-5xl font-mono font-bold text-white shadow-xl">
-                    {formatNumber(timeLeft.hours)}
-                  </div>
-                  <span className="text-xs text-zinc-500 mt-2 uppercase tracking-wider">Hours</span>
-                </div>
-                <div className="text-3xl md:text-5xl font-mono font-bold text-zinc-700 mt-4 md:mt-6">:</div>
-                <div className="flex flex-col">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-3xl md:text-5xl font-mono font-bold text-white shadow-xl">
-                    {formatNumber(timeLeft.minutes)}
-                  </div>
-                  <span className="text-xs text-zinc-500 mt-2 uppercase tracking-wider">Mins</span>
-                </div>
-                <div className="text-3xl md:text-5xl font-mono font-bold text-zinc-700 mt-4 md:mt-6">:</div>
-                <div className="flex flex-col">
-                  <div className="w-16 h-16 md:w-24 md:h-24 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center justify-center text-3xl md:text-5xl font-mono font-bold text-blue-400 shadow-xl shadow-blue-900/20">
-                    {formatNumber(timeLeft.seconds)}
-                  </div>
-                  <span className="text-xs text-blue-500/70 mt-2 uppercase tracking-wider">Secs</span>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -139,11 +69,11 @@ export default function Page() {
               {/* Benefit 1 */}
               <div className="bg-zinc-900/50 border border-zinc-800 rounded-3xl p-8 hover:bg-zinc-900 transition-colors group">
                 <div className="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Zap className="w-7 h-7 text-blue-400" />
+                  <Smartphone className="w-7 h-7 text-blue-400" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">더블 스토리지</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">강력한 Galaxy AI</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  256GB 가격에 512GB로 무상 업그레이드. 용량 걱정 없이 마음껏 촬영하세요.
+                  서클 투 서치부터 실시간 통번역까지. AI가 선사하는 편리하고 직관적인 모바일 라이프를 경험하세요.
                 </p>
               </div>
               
@@ -152,9 +82,9 @@ export default function Page() {
                 <div className="w-14 h-14 bg-green-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Truck className="w-7 h-7 text-green-400" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">3월 6일 도착 보장</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">로켓배송 보장</h3>
                 <p className="text-zinc-400 text-sm leading-relaxed">
-                  누구보다 빠르게. 사전예약 고객 대상 로켓배송으로 3월 6일(금) 100% 도착 보장.
+                  누구보다 빠르게. 쿠팡만의 당일/익일 도착 보장 시스템으로 새로운 갤럭시를 가장 먼저 만나보세요.
                 </p>
               </div>
 
@@ -187,8 +117,8 @@ export default function Page() {
         <section id="lineup" className="py-24 px-6 bg-[#050505] relative">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">사전예약 라인업</h2>
-              <p className="text-zinc-400 text-lg">원하는 모델을 선택하고 사전예약 혜택을 확인하세요.</p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">S26 라인업</h2>
+              <p className="text-zinc-400 text-lg">원하는 모델을 선택하고 혜택을 확인하세요.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -201,7 +131,7 @@ export default function Page() {
                   <h3 className="text-2xl font-bold text-white mb-2">Galaxy S26</h3>
                   <p className="text-zinc-400 text-sm mb-4">컴팩트한 디자인, 강력한 성능</p>
                   <div className="flex items-center text-blue-400 font-medium text-sm">
-                    사전예약 하기 <ChevronRight className="w-4 h-4 ml-1" />
+                    구매하기 <ChevronRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
                 {/* Coupang iframe */}
@@ -219,7 +149,7 @@ export default function Page() {
                   <h3 className="text-2xl font-bold text-white mb-2">Galaxy S26+</h3>
                   <p className="text-zinc-400 text-sm mb-4">더 커진 화면과 여유로운 배터리</p>
                   <div className="flex items-center text-blue-400 font-medium text-sm">
-                    사전예약 하기 <ChevronRight className="w-4 h-4 ml-1" />
+                    구매하기 <ChevronRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
                 {/* Coupang iframe (Ultra) */}
@@ -238,7 +168,7 @@ export default function Page() {
                   <h3 className="text-2xl font-bold text-white mb-2">Galaxy S26 Ultra</h3>
                   <p className="text-zinc-400 text-sm mb-4">궁극의 프리미엄과 S펜의 만남</p>
                   <div className="flex items-center text-blue-400 font-medium text-sm">
-                    사전예약 하기 <ChevronRight className="w-4 h-4 ml-1" />
+                    구매하기 <ChevronRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
                 {/* Coupang iframe */}
@@ -253,16 +183,16 @@ export default function Page() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-6">
-                    사전예약 특별 혜택
+                    쿠팡 단독 추천
                   </div>
                   <h3 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                     완벽한 에코시스템의 완성<br/>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">Galaxy Buds4 Pro</span>
                   </h3>
                   <p className="text-zinc-400 text-lg mb-8 leading-relaxed">
-                    Galaxy S26 시리즈 사전예약 고객님께 드리는 특별한 혜택. 
+                    Galaxy S26 시리즈와 완벽하게 어우러지는 Buds4 Pro. 
                     압도적인 노이즈 캔슬링과 360 오디오로 차원이 다른 사운드를 경험하세요. 
-                    사전예약 기간 동안 기기와 함께 구매 시 <strong className="text-white">최대 50% 할인 혜택</strong>이 제공됩니다.
+                    기기와 함께 구매 시 <strong className="text-white">더욱 큰 혜택</strong>이 제공됩니다.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <a href="https://link.coupang.com/a/dUWneV" target="_blank" rel="noopener noreferrer" className="px-8 py-4 rounded-xl bg-white text-black font-bold hover:bg-zinc-200 transition-colors flex items-center justify-center gap-2">
@@ -384,8 +314,8 @@ export default function Page() {
       <footer className="fixed bottom-0 left-0 w-full bg-[#0a0a0a]/90 backdrop-blur-xl border-t border-white/10 p-4 z-50 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="hidden md:block text-sm font-medium">
-            <span className="text-zinc-400">사전예약 마감일: </span>
-            <span className="text-white">3월 5일 23:59</span>
+            <span className="text-zinc-400">갤럭시 S26 시리즈 </span>
+            <span className="text-white">지금 쿠팡에서 만나보세요</span>
           </div>
           <div className="flex w-full md:w-auto gap-2 md:gap-4 overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
             <a href="https://link.coupang.com/a/dUWlRF" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none whitespace-nowrap px-6 py-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-semibold transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
