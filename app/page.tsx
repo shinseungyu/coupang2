@@ -316,6 +316,7 @@ export default function Page() {
             <p>"이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다."</p>
             <p>바로가기 아이콘 이용 시, 수신자의 사전 동의를 얻지 않은 메신저, SNS 등으로 메시지를 발송하는 행위는 불법 스팸 전송 행위로 간주되어 규제기관의 행정제재 또는 형사 처벌의 대상이 될 수 있으니 유의하시기 바랍니다.</p>
           </div>
+          <p className="text-zinc-700 mt-2">&copy; {new Date().getFullYear()} lifeportplus.com. All rights reserved.</p>
         </section>
       </main>
 
